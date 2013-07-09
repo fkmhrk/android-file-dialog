@@ -1,0 +1,29 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+
+task wrapper(type: Wrapper){
+    gradleVersion = '1.6'
+}
+
+defaultTasks 'clean', 'build', 'install'
+
+sourceCompatibility=1.6
+targetCompatibility=1.6
+
+repositories {
+    mavenLocal()
+}
+
+dependencies {
+    compile files("${System.getenv('ANDROID_HOME')}/extras/android/support/v4/android-support-v4.jar")
+    compile files("${System.getenv('ANDROID_HOME')}/platforms/android-8/android.jar")
+}
+
+install {
+    repositories.mavenInstaller {
+        pom.version = '0.1'
+        pom.groupId = 'jp.fkmsoft.android'
+        pom.artifactId = 'fileDialog'
+    }
+}
