@@ -13,11 +13,13 @@ targetCompatibility=1.6
 
 repositories {
     mavenLocal()
+    mavenCentral()
 }
 
 dependencies {
     compile files("${System.getenv('ANDROID_HOME')}/extras/android/support/v4/android-support-v4.jar")
     compile files("${System.getenv('ANDROID_HOME')}/platforms/android-8/android.jar")
+    testCompile 'junit:junit:4.11' 
 }
 
 install {
